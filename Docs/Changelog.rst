@@ -1,6 +1,12 @@
 Changelog
 =========
 
+**[1.4.0] ----- 2024-03-29** ::
+
+	    Change arch PKGBUILD dependency to python-pynotify
+	    update Docs/Changelog.rst Docs/lockmgr.pdf
+
+
 **[1.3.2] ----- 2024-03-29** ::
 
 	    Fix typo in PKGBUILD depends
