@@ -1,0 +1,24 @@
+# 
+# requirements.txt
+#
+
+# Run time
+python >= 3.9
+wireguard-tools
+nftables
+netaddr
+qrcode
+pillow
+tomli_w
+tomli       # needed for python < 3.11
+
+# package building/installing
+git
+wheel
+build
+installer
+poetry
+rsync
+
+
+

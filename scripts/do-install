@@ -1,0 +1,37 @@
+#!/bin/bash
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2023 Gene C
+#
+# installer script for lockmgr
+# e.g. Call from PKGBUILD:  
+#   ./do-install ${pkgdir}
+# gene c
+#
+dest="$1"
+self='lockmgr'
+
+info="Docs README.rst scripts packaging examples"
+infodir="/usr/share/${self}"
+
+license="Docs/License.rst"
+licensedir="/usr/share/licenses/${self}"
+
+# list apps without the ".py" or leave empty string
+apps=()
+
+# so can make app link in /usr/bin
+sitedir=$(/usr/bin/python3 -c "import site; print(site.getsitepackages()[0])")
+self_sitedir=${sitedir}/${self//-/_}
+
+if [ ! -d "$dest" ] ; then
+    echo 'Missing destination directory'
+    exit 1
+else
+    # shared
+    /usr/bin/rsync --mkpath -a ${info} ${dest}${infodir}
+    /usr/bin/rsync --mkpath -a ${license} ${dest}/${licensedir}/
+
+    /usr/bin/python -m installer --destdir="$dest" dist/*.whl
+
+fi
+
