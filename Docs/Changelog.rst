@@ -1,6 +1,12 @@
 Changelog
 =========
 
+**[1.5.0] ----- 2024-10-19** ::
+
+	    remove unused requirements file
+	    update Docs/Changelog.rst Docs/lockmgr.pdf
+
+
 **[1.4.0] ----- 2024-03-29** ::
 
 	    Change arch PKGBUILD dependency to python-pynotify
