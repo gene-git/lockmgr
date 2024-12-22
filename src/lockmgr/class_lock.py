@@ -76,20 +76,27 @@ def _release_lock(lock_mgr:'LockMgr') -> bool:
     return okay
 
 class LockMgr:
-    """ Data Class for managing file locks."""
+    """ Class for managing robust file locks."""
     def __init__(self, lockfile):
         self.lockfile = lockfile
         self.fd_w = -1
         self.acquired = False
         self.msg = ''
 
-    def acquire_lock(self, wait:bool=False, timeout:int=30):
+    def acquire_lock(self, wait:bool=False, timeout:int=30) -> bool:
         """
-        Acquire Lock
-         - wait until lock is acquired (up to 3 x timeout)
-           timeout must be > 0
-           This can be racy from time inotify returns till we acquire lock
-           but thats ok - just means acquire will fail and e try again
+        Acquire Lock.
+         Try to obtain a lock.
+            :wait:
+                If True and timeout > 0, then wait until lock is acquired (up to 10 attempts).
+                This can be racy from the time inotify returns till we acquire lock
+                but thats ok - it just means acquire will fail and we wll try again.
+                If False, then do not retry if unable to acquire lock on first attempt.
+            :timeout:
+                Number of seconds > 0 to wait between attempts to acquire the lock
+                Will retry up to 10 times.
+            :returns:
+                True if lock was acquired
         """
         got_lock = _acquire_lock(self)
 
@@ -125,6 +132,14 @@ class LockMgr:
         return got_lock
 
     def release_lock(self):
-        """ drop the lock """
+        """
+        Release Acquired Lock
+         Drop the acquired lock.
+         No-op if there is no acquired lock.
+            :input: 
+                No input
+            :returns:
+                No return value
+        """
         okay = _release_lock(self)
         return okay

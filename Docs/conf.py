@@ -6,16 +6,27 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
+#import sys
+#from pathlib import Path
+#sys.path.insert(0, str(Path('..', 'src').resolve()))
+
 project = "lockmgr"
-copyright = '2023, Gene C'
+copyright = '2023-present, Gene C'
 author = 'Gene C'
-release = '1.5.0'
+release = '1.5.1'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 #extensions = ['myst_parser']
-extensions = []
+#         'sphinx.ext.autodoc',
+extensions = [
+         'autoapi.extension',
+         'sphinx.ext.autodoc'
+        ]
+
+autoapi_dirs = ['../src/lockmgr']
+autoapi_options = ['members']
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']

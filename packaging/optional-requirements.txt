@@ -5,5 +5,7 @@
 # adjust to ensure pdflatex is included
 # 
 sphinx
+myst-parser
+sphinx-autoapi
 texlive-latexextra
 
