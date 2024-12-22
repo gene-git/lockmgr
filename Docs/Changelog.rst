@@ -1,6 +1,12 @@
 Changelog
 =========
 
+**[1.5.2] ----- 2024-12-22** ::
+
+	    Use autodoc style parameter descriptions for API docs
+	    update Docs/Changelog.rst Docs/lockmgr.pdf
+
+
 **[1.5.1] ----- 2024-12-22** ::
 
 	    Add API reference to documentation
