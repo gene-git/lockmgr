@@ -86,17 +86,21 @@ class LockMgr:
     def acquire_lock(self, wait:bool=False, timeout:int=30) -> bool:
         """
         Acquire Lock.
-         Try to obtain a lock.
-            :wait:
-                If True and timeout > 0, then wait until lock is acquired (up to 10 attempts).
-                This can be racy from the time inotify returns till we acquire lock
-                but thats ok - it just means acquire will fail and we wll try again.
-                If False, then do not retry if unable to acquire lock on first attempt.
-            :timeout:
-                Number of seconds > 0 to wait between attempts to acquire the lock
-                Will retry up to 10 times.
-            :returns:
-                True if lock was acquired
+            Try to obtain a lock.
+
+        :param wait: 
+
+            If True and timeout > 0, then wait until lock is acquired (up to 10 attempts).  
+            This can be racy from the time inotify returns till we acquire lock will fail and 
+            we wll try again.  If False, then do not retry if unable to acquire lock on first attempt.
+
+        :param timeout: 
+
+            Number of seconds > 0 to wait between attempts to acquire the lock Will retry up to 10 times.
+
+        :returns: 
+
+            True if lock was acquired
         """
         got_lock = _acquire_lock(self)
 
@@ -136,10 +140,6 @@ class LockMgr:
         Release Acquired Lock
          Drop the acquired lock.
          No-op if there is no acquired lock.
-            :input: 
-                No input
-            :returns:
-                No return value
         """
         okay = _release_lock(self)
         return okay

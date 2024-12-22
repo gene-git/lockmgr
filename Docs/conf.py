@@ -13,20 +13,18 @@
 project = "lockmgr"
 copyright = '2023-present, Gene C'
 author = 'Gene C'
-release = '1.5.1'
+release = '1.5.2'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 #extensions = ['myst_parser']
 #         'sphinx.ext.autodoc',
-extensions = [
-         'autoapi.extension',
-         'sphinx.ext.autodoc'
-        ]
+extensions = ['sphinx.ext.autodoc', 'autoapi.extension']
 
 autoapi_dirs = ['../src/lockmgr']
 autoapi_options = ['members']
+#autodoc_typehints = 'description'
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
