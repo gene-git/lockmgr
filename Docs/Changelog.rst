@@ -1,6 +1,12 @@
 Changelog
 =========
 
+**[1.5.1] ----- 2024-12-22** ::
+
+	    Add API reference to documentation
+	    update Docs/Changelog.rst Docs/lockmgr.pdf
+
+
 **[1.5.0] ----- 2024-10-19** ::
 
 	    remove unused requirements file
