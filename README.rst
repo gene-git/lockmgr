@@ -12,7 +12,10 @@ lockmgr : Python Class implementing file locking
 New / Interesting
 ==================
 
-Fun new info goes here
+ * All git tags are signed with arch@sapience.com key which is available via WKD
+   or download from https://www.sapience.com/tech. Add the key to your package builder gpg keyring.
+   The key is included in the Arch package and the source= line with *?signed* at the end can be used
+   to verify the git tag.  You can also manually verify the signature
 
 ###################
 Using LockMgr Class
