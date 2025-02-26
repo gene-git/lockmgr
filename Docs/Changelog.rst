@@ -1,6 +1,12 @@
 Changelog
 =========
 
+**[1.5.4] ----- 2025-02-26** ::
+
+	    PKGBUILD: Add missing makedepends on python-installer (per aur comment by @piater)
+	    update Docs/Changelog.rst Docs/lockmgr.pdf
+
+
 **[1.5.3] ----- 2024-12-31** ::
 
 	    Git tags are now signed.
