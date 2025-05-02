@@ -6,17 +6,16 @@ File locks
 # pylint: disable=too-many-locals,invalid-name
 
 import os
-import time
 import fcntl
 from pynotify import Inotify, InotifyMask
 
-def _acquire_lock(lock_mgr:'LockMgr') -> bool:
+
+def _acquire_lock(lock_mgr: 'LockMgr') -> bool:
     """
     Acquire Lock
      - we dont need/want buffered IO stream.
     """
-
-    if lock_mgr.acquired :
+    if lock_mgr.acquired:
         # already locked
         lock_mgr.msg = 'Already locked'
         return True
@@ -34,12 +33,15 @@ def _acquire_lock(lock_mgr:'LockMgr') -> bool:
             os.close(lock_mgr.fd_w)
         lock_mgr.fd_w = -1
         lock_mgr.acquired = False
-        lock_mgr.msg = f'Failed : {err}'
+        lock_mgr.msg = f'Failed: {err}'
 
     return lock_mgr.acquired
 
-def _clear_lockfile(lock_mgr:'LockMgr'):
-    """ reset the lock file """
+
+def _clear_lockfile(lock_mgr: 'LockMgr'):
+    """
+    reset the lock file
+    """
     lock_mgr.acquired = False
     try:
         os.unlink(lock_mgr.lockfile)
@@ -50,7 +52,8 @@ def _clear_lockfile(lock_mgr:'LockMgr'):
 
     lock_mgr.fd_w = -1
 
-def _release_lock(lock_mgr:'LockMgr') -> bool:
+
+def _release_lock(lock_mgr: 'LockMgr') -> bool:
     """
     Release acquired lock
     """
@@ -62,14 +65,15 @@ def _release_lock(lock_mgr:'LockMgr') -> bool:
         _clear_lockfile(lock_mgr)
         lock_mgr.msg = 'error: Lock acquired but bad lockfile fd'
         return False
+
     try:
         fcntl.flock(lock_mgr.fd_w, fcntl.LOCK_UN)
         lock_mgr.msg = 'success: lock released'
         okay = True
 
     except OSError as err:
-        # Shouldn't happen : failed somehow - still mark unlocked?
-        lock_mgr.msg = f'Error: failed releasing lock : {err}'
+        # Shouldn't happen: failed somehow - still mark unlocked?
+        lock_mgr.msg = f'Error: failed releasing lock: {err}'
         okay = False
 
     _clear_lockfile(lock_mgr)
@@ -77,32 +81,37 @@ def _release_lock(lock_mgr:'LockMgr') -> bool:
 
     return okay
 
+
 class LockMgr:
-    """ Class for managing robust file locks."""
+    """
+    Robust file locking manager.
+    """
     def __init__(self, lockfile):
         self.lockfile = lockfile
         self.fd_w = -1
         self.acquired = False
         self.msg = ''
 
-    def acquire_lock(self, wait:bool=False, timeout:int=30) -> bool:
+    def acquire_lock(self, wait: bool = False, timeout: int = 30) -> bool:
         """
-        Acquire Lock.
-            Try to obtain a lock.
+        Try to acquire a lock.
 
-        :param wait: 
+        Args:
+            wait (bool):
 
-            If True and timeout > 0, then wait until lock is acquired (up to 10 attempts).  
-            This can be racy from the time inotify returns till we acquire lock will fail and 
-            we wll try again.  If False, then do not retry if unable to acquire lock on first attempt.
+            If True and timeout > 0:
+            wait until lock is acquired (up to 10 attempts).
+            This can be racy from the time inotify returns till we
+            acquire lock will fail and we wll try again.
+            If False, then do not retry if unable to acquire
+            lock on first attempt.
 
-        :param timeout: 
+            timeout (int):
+            Number of seconds > 0 to wait between attempts to acquire
+            the lock Will retry up to 10 times.
 
-            Number of seconds > 0 to wait between attempts to acquire the lock Will retry up to 10 times.
-
-        :returns: 
-
-            True if lock was acquired
+            Returns (bool):
+            True if lock acquired
         """
         got_lock = _acquire_lock(self)
 
@@ -116,14 +125,14 @@ class LockMgr:
             max_tries = 10
             done = False
             mask = InotifyMask.IN_DELETE_SELF | InotifyMask.IN_IGNORED
-            pid = os.getpid()
+            # pid = os.getpid()
 
             while not done and tries <= max_tries:
                 wd = inot.add_watch(self.lockfile, mask=mask)
-                #print(f'{pid} Add watch wd = {wd} try={tries}')
+                # print(f'{pid} Add watch wd = {wd} try={tries}')
                 if wd >= 0:
                     for _events in inot.get_events():
-                        #print(f'_events = {_events}')
+                        # print(f'_events = {_events}')
                         break
                     inot.rm_watch(self.lockfile)
 
@@ -131,17 +140,17 @@ class LockMgr:
                 if got_lock:
                     done = True
                     break
-                #else:
-                #    time.sleep(0.01)
 
                 tries += 1
         return got_lock
 
     def release_lock(self):
         """
-        Release Acquired Lock
-         Drop the acquired lock.
-         No-op if there is no acquired lock.
+        Release an Acquired Lock
+
+        Drop the acquired lock.
+        No-op if there is no acquired lock.
+
         """
         okay = _release_lock(self)
         return okay
