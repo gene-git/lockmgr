@@ -1,58 +1,91 @@
+=========
 Changelog
 =========
 
-**[1.5.4] ----- 2025-02-26** ::
+Tags
+====
 
-	    PKGBUILD: Add missing makedepends on python-installer (per aur comment by @piater)
-	    update Docs/Changelog.rst Docs/lockmgr.pdf
+::
 
+	1.3.0 (2024-03-29) -> 1.6.1 (2025-05-02)
+	19 commits.
 
-**[1.5.3] ----- 2024-12-31** ::
-
-	    Git tags are now signed.
-	    Update SPDX tags
-	    Add git signing key to Arch Package
-	    update Docs/Changelog.rst Docs/lockmgr.pdf
+Commits
+=======
 
 
-**[1.5.2] ----- 2024-12-22** ::
+* 2025-05-02  : **1.6.1**
 
-	    Use autodoc style parameter descriptions for API docs
-	    update Docs/Changelog.rst Docs/lockmgr.pdf
+::
 
+                Tidy ups: PEP-8, PEP-257, PEP-484 PEP-561
+                improve reference API doc.
+                Add py.typed so type checkers like mypy can be used with the module.
+ 2025-02-26     update Docs/Changelog.rst Docs/lockmgr.pdf
 
-**[1.5.1] ----- 2024-12-22** ::
+* 2025-02-26  : **1.5.4**
 
-	    Add API reference to documentation
-	    update Docs/Changelog.rst Docs/lockmgr.pdf
+::
 
+                PKGBUILD: Add missing makedepends on python-installer (per aur comment by
+                @piater)
+ 2024-12-31     update Docs/Changelog.rst Docs/lockmgr.pdf
 
-**[1.5.0] ----- 2024-10-19** ::
+* 2024-12-31  : **1.5.3**
 
-	    remove unused requirements file
-	    update Docs/Changelog.rst Docs/lockmgr.pdf
+::
 
+                Git tags are now signed.
+                Update SPDX tags
+                Add git signing key to Arch Package
+ 2024-12-22     update Docs/Changelog.rst Docs/lockmgr.pdf
 
-**[1.4.0] ----- 2024-03-29** ::
+* 2024-12-22  : **1.5.2**
 
-	    Change arch PKGBUILD dependency to python-pynotify
-	    update Docs/Changelog.rst Docs/lockmgr.pdf
+::
 
+                Use autodoc style parameter descriptions for API docs
+                update Docs/Changelog.rst Docs/lockmgr.pdf
 
-**[1.3.2] ----- 2024-03-29** ::
+* 2024-12-22  : **1.5.1**
 
-	    Fix typo in PKGBUILD depends
-	    update Docs/Changelog.rst Docs/lockmgr.pdf
+::
 
+                Add API reference to documentation
+ 2024-10-19     update Docs/Changelog.rst Docs/lockmgr.pdf
 
-**[1.3.1] ----- 2024-03-29** ::
+* 2024-10-19  : **1.5.0**
 
-	    README fix rst title level
+::
 
+                remove unused requirements file
+ 2024-03-29     update Docs/Changelog.rst Docs/lockmgr.pdf
 
-**[1.3.0] ----- 2024-03-29** ::
+* 2024-03-29  : **1.4.0**
 
-	    Public release along with lockfile research and code
-	    Initial commit
+::
+
+                Change arch PKGBUILD dependency to python-pynotify
+                update Docs/Changelog.rst Docs/lockmgr.pdf
+
+* 2024-03-29  : **1.3.2**
+
+::
+
+                Fix typo in PKGBUILD depends
+                update Docs/Changelog.rst Docs/lockmgr.pdf
+
+* 2024-03-29  : **1.3.1**
+
+::
+
+                README fix rst title level
+
+* 2024-03-29  : **1.3.0**
+
+::
+
+                Public release along with lockfile research and code
+                Initial commit
 
 
