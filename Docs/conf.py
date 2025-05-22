@@ -13,7 +13,7 @@
 project = "lockmgr"
 copyright = '2023-present, Gene C'
 author = 'Gene C'
-release = '1.6.1'
+release = '1.7.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
