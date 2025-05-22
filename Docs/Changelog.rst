@@ -7,12 +7,19 @@ Tags
 
 ::
 
-	1.3.0 (2024-03-29) -> 1.6.1 (2025-05-02)
-	19 commits.
+	1.3.0 (2024-03-29) -> 1.7.0 (2025-05-21)
+	21 commits.
 
 Commits
 =======
 
+
+* 2025-05-21  : **1.7.0**
+
+::
+
+                Small type hint change
+ 2025-05-02     update Docs/Changelog.rst Docs/lockmgr.pdf
 
 * 2025-05-02  : **1.6.1**
 
