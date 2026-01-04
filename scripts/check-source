@@ -1,0 +1,30 @@
+#!/usr/bin/bash
+#
+# Source code checks.
+#
+# Run in top level dir
+# 
+# Requires:
+# - pylint
+# - pycodestyle
+# - mypy
+
+mod_dir='lockmgr'
+    
+# code
+echo "---"
+echo "Checking code"
+cd ./src
+PYTHONPATH=. pylint $mod_dir/*py
+PYTHONPATH=. pycodestyle --max-line-length=110 $mod_dir/*py
+mypy --check-untyped-defs --follow-untyped-imports $mod_dir
+
+# Tests
+echo ""
+echo "---"
+echo "Checking tests"
+cd ../tests
+PYTHONPATH=../src pylint *py
+PYTHONPATH=../src pycodestyle --max-line-length=110 *py
+mypy --check-untyped-defs --follow-untyped-imports .
+

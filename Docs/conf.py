@@ -13,7 +13,7 @@
 project = "lockmgr"
 copyright = '2023-present, Gene C'
 author = 'Gene C'
-release = '1.7.0'
+release = "1.8.0"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -29,11 +29,8 @@ add_module_names = False
 
 #autodoc_typehints = 'description'
 
-
 templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
-
-
+exclude_patterns = ['_build', 'Thumbs.db', 'Changelog.rst', 'Misc/*.rst']
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output

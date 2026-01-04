@@ -1,10 +1,9 @@
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["uv_build>=0.9.21,<=1.0.0"]
+build-backend = "uv_build"
 
 [project]
 name = "lockmgr"
-dynamic = ["version"]
 description = "lockmgr : Python class to manage lockfiles"
 authors = [{ name = "Gene C", email = "arch@sapience.com" }]
 license = "MIT"
@@ -13,34 +12,30 @@ keywords = []
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Programming Language :: Python",
-    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
 ]
+requires-python = ">=3.13"
+version = "1.8.0"
 dependencies = []
-
-[tool.hatch.build.targets.wheel]
-packages = ["src/lockmgr"]
-include = [
-    "src/lockmgr",
-    "src/lockmgr/py.typed",
-]
 
 [project.urls]
 Documentation = "https://github.com/gene-git/lockmgr/Docs"
 Issues = "https://github.com/gene-git/lockmgr/issues"
 Source = "https://github.com/gene-git/lockmgr"
 
-[tool.hatch.version]
-path = "src/lockmgr/__about__.py"
-
-[tool.hatch.envs.default]
-
-[tool.hatch.envs.default.scripts]
-[[tool.hatch.envs.all.matrix]]
-python = ["3.12", "3.12", "3.13"]
-
-[tool.hatch.envs.lint]
-detached = true
-dependencies = [
+[tool.uv.build-backend]
+module-name = 'lockmgr'
+module-root = "src"
+source-include = [
+    '/lockmgr',
+    '/lockmgr/py.typed',
+]
+source-exclude = [
+    ".pytest_cache",
+    "__pycache__",
+    ".mypy_cache",
 ]
 
 [tool.mypy]

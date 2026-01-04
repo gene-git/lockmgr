@@ -1,4 +1,4 @@
-.. SPDX-License-Identifier: MIT
+.. SPDX-License-Identifier: GPL-2.0-or-later
 
 ##################
 lockmgr
@@ -17,9 +17,18 @@ to verify the git tag.  You can also manually verify the signature
 New / Interesting
 ==================
 
- * Tidy ups: PEP-8, PEP-257, PEP-484 PEP-561
- * improve reference API doc.
- * Add py.typed so type checkers like mypy can be used with the module.
+**1.8.0**
+
+* Switch packaging from hatch to uv
+* Testing to confirm all working on python 3.14.2
+* License GPL-2.0-or-later
+
+
+**Older**
+
+* Tidy ups: PEP-8, PEP-257, PEP-484 PEP-561
+* improve reference API doc.
+* Add py.typed so type checkers like mypy can be used with the module.
 
 
 ###################
@@ -273,17 +282,17 @@ Dependencies
 Philosophy
 ==========
 
-We follow the *live at head commit* philosophy. This means we recommend using the
-latest commit on git master branch. We also provide git tags. 
+We follow the *live at head commit* philosophy as recommended by
+Google's Abseil team [5]_.  This means we recommend using the
+latest commit on git master branch. 
 
-This approach is also taken by Google [5]_ [6]_.
 
 License
 =======
 
-Created by Gene C. and licensed under the terms of the MIT license.
+Created by Gene C. and licensed under the terms of the GPL-2.0-or-later license.
 
- * SPDX-License-Identifier: MIT
+ * SPDX-License-Identifier: GPL-2.0-or-later
  * Copyright (c) 2023 Gene C
 
 
@@ -295,7 +304,6 @@ Created by Gene C. and licensed under the terms of the MIT license.
 .. [3] Python fcntl docs: https://docs.python.org/3/library/fcntl.html
 .. [4] Python struct module: https://docs.python.org/3/library/struct.html
 
-.. [5] https://github.com/google/googletest  
-.. [6] https://abseil.io/about/philosophy#upgrade-support
+.. [5] https://abseil.io/about/philosophy#upgrade-support
 
 
