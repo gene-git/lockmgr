@@ -6,12 +6,19 @@ Tags
 
 .. code-block:: text
 
-	1.3.0 (2024-03-29) -> 1.8.0 (2026-01-04)
-	23 commits.
+	1.3.0 (2024-03-29) -> 1.8.1 (2026-01-04)
+	25 commits.
 
 Commits
 =======
 
+
+* 2026-01-04  : **1.8.1**
+
+.. code-block:: text
+
+              - fix license string in pyproject.toml
+              - update Docs/Changelog
 
 * 2026-01-04  : **1.8.0**
 
