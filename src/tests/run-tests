@@ -1,0 +1,38 @@
+#!/bin/bash
+#
+# Run 'num' tests in parallel to beat up on the lockmgr/pynotify tools.
+#
+# Each tries to get a lock with 30 second timeout
+# Once acquired hold it for 2 seconds before releasing it.
+# All should be able to acquire a lock. 
+# 
+export PYTHONPATH=../src
+num=5
+
+# run a few in background
+for ((i = 0; i < num; i++)); do
+    ./test_locks.py "$i" &
+    pids+=("$!")
+done
+
+# wait for each to exit
+success=0
+for pid in "${pids[@]}"; do
+    wait "$pid"
+    if (( $? == 0 )); then
+        ((success++))
+    fi
+done
+failed=$((num - success))
+
+green() { echo -en "\e[32m$1\e[0m"; }
+red()   { echo -en "\e[31m$1\e[0m"; }
+
+if (( success == num )) ; then
+    green "[OKAY]"
+    echo " Suceeded: $success / $num"
+    exit 0
+fi
+red "[FAIL]" 
+echo " Failed: $failed / $num"
+exit 1

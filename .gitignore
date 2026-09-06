@@ -1,0 +1,9 @@
+__pycache__/
+*.o
+c_lock_test
+flock_sizes
+src/data/docs/_build/
+src/data/docs/html/.buildinfo.bak
+src/data/examples/research/flock_sizes
+src/data/examples/research/c_lock_test
+

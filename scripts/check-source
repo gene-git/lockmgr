@@ -9,22 +9,28 @@
 # - pycodestyle
 # - mypy
 
-mod_dir='lockmgr'
+mod_dir='src/lockmgr'
+
+export PYTHONPATH=$(/usr/bin/realpath ./src)
     
-# code
-echo "---"
-echo "Checking code"
-cd ./src
-PYTHONPATH=. pylint $mod_dir/*py
-PYTHONPATH=. pycodestyle --max-line-length=110 $mod_dir/*py
-mypy --check-untyped-defs --follow-untyped-imports $mod_dir
+echo ""
+echo "  ... pylint"
+/usr/bin/pylint $mod_dir/*py
+
+echo ""
+echo "  ... pycodfestyle"
+/usr/bin/pycodestyle --max-line-length=110 $mod_dir/*py
+
+echo ""
+echo "  ... mypy"
+/usr/bin/mypy --check-untyped-defs --follow-untyped-imports $mod_dir
 
 # Tests
 echo ""
-echo "---"
-echo "Checking tests"
-cd ../tests
-PYTHONPATH=../src pylint *py
-PYTHONPATH=../src pycodestyle --max-line-length=110 *py
-mypy --check-untyped-defs --follow-untyped-imports .
+echo " ... tests"
+
+tdir='src/tests'
+/usr/bin/pylint "$tdir"/*py
+/usr/bin/pycodestyle --max-line-length=110 "$tdir"/*py
+/usr/bin/mypy --check-untyped-defs --follow-untyped-imports "$tdir"
 

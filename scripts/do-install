@@ -1,38 +1,19 @@
 #!/bin/bash
-# SPDX-License-Identifier: MIT
-# Copyright (c) 2023 Gene C
 #
-# installer script for lockmgr
-# e.g. Call from PKGBUILD:  
-#   ./do-install ${pkgdir}
-# gene c
+# Install
+# - arguments:
+#   - no args: destination is "build/pkg".
+#   - destination   =>  install to this directory
 #
-dest="$1"
-self='lockmgr'
 
-info="Docs README.rst scripts packaging examples"
-infodir="/usr/share/${self}"
-
-license="Docs/License/License.rst"
-licensedir="/usr/share/licenses/${self}"
-
-# list apps without the ".py" or leave empty string
-apps=()
-
-# so can make app link in /usr/bin
-sitedir=$(/usr/bin/python3 -c "import site; print(site.getsitepackages()[0])")
-installdir="${dest}${sitedir}"
-
-if [ ! -d "$dest" ] ; then
-    echo 'Missing destination directory'
-    exit 1
+if (( $# < 1 )) ; then
+    dest='build/pkg'
 else
-    # shared
-    /usr/bin/rsync --mkpath -a ${info} ${dest}${infodir}
-    /usr/bin/rsync --mkpath -a ${license} ${dest}/${licensedir}/
-
-    /usr/bin/uv pip install ${uv_opts[@]} --target "$installdir" dist/*.whl
-    /usr/bin/rm -rf "$installdir"/.lock
+    dest="$1"
 fi
-exit 0
 
+dest=$(realpath "$dest")
+
+/usr/bin/meson install -C build/release --destdir "$dest" > /dev/null
+
+exit 0
