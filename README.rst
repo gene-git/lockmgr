@@ -17,9 +17,10 @@ to verify the git tag.  You can also manually verify the signature
 Recent Changes
 ==============
 
-**1.9.2**
+**1.9.4**
 
-* Typo in docs
+* Fix missing makedepends and ensure build/install scripts fail on error
+  Thanks to @TrialnError on Arch AUR.
 
 **1.9.1**
 

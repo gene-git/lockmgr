@@ -6,20 +6,29 @@ Tags
 
 .. code-block:: text
 
-	1.3.0 (2024-03-29) -> 1.9.3 (2026-09-06)
-	31 commits.
+	1.3.0 (2024-03-29) -> 1.9.4 (2026-09-06)
+	32 commits.
 
 Commits
 =======
 
 
-* 2026-09-06  : **1.9.3**
+* 2026-09-06  : **1.9.4**
+
+.. code-block:: text
+
+              - **1.9.4**
+            
+                * Fix missing makedepends and ensure build/install scripts fail on error
+                  Thanks to @TrialnError on Arch AUR.
+
+* 2026-09-06  : **1.9.3, origin/master**
 
 .. code-block:: text
 
               - Add missing makedepends on meson (per @TrialnError from aur - thank you!)
 
-* 2026-09-06  : **1.9.2, origin/master**
+* 2026-09-06  : **1.9.2**
 
 .. code-block:: text
 
