@@ -27,7 +27,7 @@ sys.path.insert(0, os.path.abspath("../../"))
 # --------------------------------------------
 # project
 # 
-project = "cidrtools"
+project = "lockmgr"
 author = 'Gene C'
 latex_engine = 'xelatex'
 

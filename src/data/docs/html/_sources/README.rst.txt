@@ -17,6 +17,10 @@ to verify the git tag.  You can also manually verify the signature
 Recent Changes
 ==============
 
+**1.9.2**
+
+* Typo in docs
+
 **1.9.1**
 
 * Use meson / meson-python for build and package management
