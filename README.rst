@@ -14,11 +14,15 @@ The API reference doc in both PDF and HTML is included.
 Recent Changes
 ==============
 
+**1.9.6**
+
+* typo
+
 **1.9.5**
 
 * meson now runs tests.
 * Clean html docs to avoid unneeded sphinx tmp files.
-* Fix bug with tests using relative path as reported by @piater on AUR'
+* Fix bug with tests using relative path as reported by @piater on AUR
 
 **1.9.4**
 
