@@ -6,14 +6,22 @@ Tags
 
 .. code-block:: text
 
-	1.3.0 (2024-03-29) -> 1.10.1 (2026-09-09)
-	38 commits.
+	1.3.0 (2024-03-29) -> 1.10.2 (2026-09-09)
+	39 commits.
 
 Commits
 =======
 
 
-* 2026-09-09  : **1.10.1**
+* 2026-09-09  : **1.10.2**
+
+.. code-block:: text
+
+              - **1.10.2**
+            
+                * Use meson parallel test capability instead of bash script
+
+* 2026-09-09  : **1.10.1, origin/master**
 
 .. code-block:: text
 
@@ -21,7 +29,7 @@ Commits
             
                 * Drop unused pytest from meson.build (thank you @piater)
 
-* 2026-09-09  : **1.10.0, origin/master**
+* 2026-09-09  : **1.10.0**
 
 .. code-block:: text
 

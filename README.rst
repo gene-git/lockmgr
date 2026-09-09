@@ -14,6 +14,10 @@ The API reference doc in both PDF and HTML is included.
 Recent Changes
 ==============
 
+**1.10.2**
+
+* Use meson parallel test capability instead of bash script
+
 **1.10.1**
 
 * Drop unused pytest from meson.build (thank you @piater)

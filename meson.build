@@ -117,16 +117,19 @@ install_data(
 
 #
 # tests
+# - these are run in parallel
+# - each test run gets the counter 'i' as an argument, which uniquely identifies it.
 #
 srcdir = proj_root / 'src'
 testdir = srcdir / 'tests'
 
-test_1 = find_program(testdir / 'run-lock-test')
+num_tests = 5
+test_exe = find_program(testdir / 'test_locks.py')
 
-test('test_1',
-    test_1,
-    args: [testdir],
+foreach i : range(num_tests)
+  test('test_exe-@0@'.format(i), 
+    test_exe,
+    args : ['@0@'.format(i)],
     env: {'PYTHONPATH': srcdir},
-    suite: ['unit'],
-    timeout: 60,
-  )
+    )
+endforeach
