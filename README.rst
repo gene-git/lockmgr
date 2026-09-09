@@ -14,9 +14,10 @@ The API reference doc in both PDF and HTML is included.
 Recent Changes
 ==============
 
-**1.9.8**
+**1.10.0**
 
 * Bug in meson test runner with PYTHONPATH
+  One of those mornings ... 
 
 **1.9.7**
 

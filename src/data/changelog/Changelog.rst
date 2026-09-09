@@ -6,14 +6,23 @@ Tags
 
 .. code-block:: text
 
-	1.3.0 (2024-03-29) -> 1.9.8 (2026-09-09)
-	36 commits.
+	1.3.0 (2024-03-29) -> 1.10.0 (2026-09-09)
+	37 commits.
 
 Commits
 =======
 
 
-* 2026-09-09  : **1.9.8**
+* 2026-09-09  : **1.10.0**
+
+.. code-block:: text
+
+              - **1.10.0**
+            
+                * Bug in meson test runner with PYTHONPATH
+                  One of those mornings ...
+
+* 2026-09-09  : **1.9.8, origin/master**
 
 .. code-block:: text
 
@@ -21,7 +30,7 @@ Commits
             
                 * Bug in meson test runner with PYTHONPATH
 
-* 2026-09-09  : **1.9.7, origin/master**
+* 2026-09-09  : **1.9.7**
 
 .. code-block:: text
 
