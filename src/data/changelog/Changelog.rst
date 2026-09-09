@@ -6,14 +6,22 @@ Tags
 
 .. code-block:: text
 
-	1.3.0 (2024-03-29) -> 1.10.0 (2026-09-09)
-	37 commits.
+	1.3.0 (2024-03-29) -> 1.10.1 (2026-09-09)
+	38 commits.
 
 Commits
 =======
 
 
-* 2026-09-09  : **1.10.0**
+* 2026-09-09  : **1.10.1**
+
+.. code-block:: text
+
+              - **1.10.1**
+            
+                * Drop unused pytest from meson.build (thank you @piater)
+
+* 2026-09-09  : **1.10.0, origin/master**
 
 .. code-block:: text
 
@@ -22,7 +30,7 @@ Commits
                 * Bug in meson test runner with PYTHONPATH
                   One of those mornings ...
 
-* 2026-09-09  : **1.9.8, origin/master**
+* 2026-09-09  : **1.9.8**
 
 .. code-block:: text
 

@@ -118,7 +118,6 @@ install_data(
 #
 # tests
 #
-pytest = find_program('pytest')
 srcdir = proj_root / 'src'
 testdir = srcdir / 'tests'
 
