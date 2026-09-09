@@ -7,15 +7,18 @@ lockmgr
 Overview
 ========
 
-lockmgr : Python Class implementing file locking
+lockmgr provides a Python class implementing file locking.
 
-All git tags are signed with arch@sapience.com key which is available via WKD
-or download from https://www.sapience.com/tech. Add the key to your package builder gpg keyring.
-The key is included in the Arch package and the source= line with *?signed* at the end can be used
-to verify the git tag.  You can also manually verify the signature
+The API reference doc in both PDF and HTML is included.
 
 Recent Changes
 ==============
+
+**1.9.5**
+
+* meson now runs tests.
+* Clean html docs to avoid unneeded sphinx tmp files.
+* Fix bug with tests using relative path as reported by @piater on AUR'
 
 **1.9.4**
 
@@ -41,6 +44,14 @@ This will avoid pacman error that a .pyc file exists. So before upgrade please d
     /usr/bin/rm -rf /usr/lib/python3.14/site-packages/lockmgr/__pycache__
 
 My apologies.
+
+Signed Source
+=============
+
+All git tags are signed with arch@sapience.com key which is available via WKD
+or download from https://www.sapience.com/tech. Add the key to your package builder gpg keyring.
+The key is included in the Arch package and the source= line with *?signed* at the end can be used
+to verify the git tag.  You can also manually verify the signature
 
 Using LockMgr Class
 ===================

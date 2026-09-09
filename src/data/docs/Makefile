@@ -12,6 +12,8 @@ BUILDDIR      = _build
 SOURCES = conf.py ../../version.txt index.rst README.rst python-api.rst \
 		  ../../lockmgr/class_lock.py
 
+HTML_EXCL 	= --exclude _sources/ --exclude .buildinfo  --exclude .doctrees/
+
 .PHONY: help Makefile clean html latexpdf
 
 html: $(BUILDDIR)/html/index.html
@@ -23,7 +25,7 @@ help:
 $(BUILDDIR)/html/index.html: $(SOURCES)
 	@$(SPHINXBUILD) -b html "$(SOURCEDIR)" "$(BUILDDIR)/html" $(SPHINXOPTS) $(O)
 	@$(SPHINXBUILD) -b html "$(SOURCEDIR)" "$(BUILDDIR)/html" $(SPHINXOPTS) $(O)
-	@rsync -av _build/html .
+	@rsync -av $(HTML_EXCL)  _build/html .
 	@echo "HTML doc build complete. Path: $@"
 
 $(PKG).pdf: $(SOURCES)
@@ -37,3 +39,4 @@ $(PKG).pdf: $(SOURCES)
 clean:
 	@rm -rf $(BUILDDIR)/*
 	@rm -rf $(PKG).pdf
+	@rm -rf html

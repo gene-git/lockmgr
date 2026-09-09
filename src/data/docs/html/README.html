@@ -5,12 +5,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1. lockmgr &#8212; lockmgr 1.9.4
+    <title>1. lockmgr &#8212; lockmgr 1.9.5
  documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
-    <script src="_static/documentation_options.js?v=38ba398c"></script>
+    <script src="_static/documentation_options.js?v=9cc2bd95"></script>
     <script src="_static/doctools.js?v=fd6eb6e6"></script>
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -38,14 +38,17 @@
 <h1><span class="section-number">1. </span>lockmgr<a class="headerlink" href="#lockmgr" title="Link to this heading">¶</a></h1>
 <section id="overview">
 <h2><span class="section-number">1.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
-<p>lockmgr : Python Class implementing file locking</p>
-<p>All git tags are signed with <a class="reference external" href="mailto:arch&#37;&#52;&#48;sapience&#46;com">arch<span>&#64;</span>sapience<span>&#46;</span>com</a> key which is available via WKD
-or download from <a class="reference external" href="https://www.sapience.com/tech">https://www.sapience.com/tech</a>. Add the key to your package builder gpg keyring.
-The key is included in the Arch package and the source= line with <em>?signed</em> at the end can be used
-to verify the git tag.  You can also manually verify the signature</p>
+<p>lockmgr provides a Python class implementing file locking.</p>
+<p>The API reference doc in both PDF and HTML is included.</p>
 </section>
 <section id="recent-changes">
 <h2><span class="section-number">1.2. </span>Recent Changes<a class="headerlink" href="#recent-changes" title="Link to this heading">¶</a></h2>
+<p><strong>1.9.5</strong></p>
+<ul class="simple">
+<li><p>meson now runs tests.</p></li>
+<li><p>Clean html docs to avoid unneeded sphinx tmp files.</p></li>
+<li><p>Fix bug with tests using relative path as reported by &#64;piater on AUR’</p></li>
+</ul>
 <p><strong>1.9.4</strong></p>
 <ul class="simple">
 <li><p>Fix missing makedepends and ensure build/install scripts fail on error
@@ -70,8 +73,15 @@ This will avoid pacman error that a .pyc file exists. So before upgrade please d
 </div>
 <p>My apologies.</p>
 </section>
+<section id="signed-source">
+<h2><span class="section-number">1.3. </span>Signed Source<a class="headerlink" href="#signed-source" title="Link to this heading">¶</a></h2>
+<p>All git tags are signed with <a class="reference external" href="mailto:arch&#37;&#52;&#48;sapience&#46;com">arch<span>&#64;</span>sapience<span>&#46;</span>com</a> key which is available via WKD
+or download from <a class="reference external" href="https://www.sapience.com/tech">https://www.sapience.com/tech</a>. Add the key to your package builder gpg keyring.
+The key is included in the Arch package and the source= line with <em>?signed</em> at the end can be used
+to verify the git tag.  You can also manually verify the signature</p>
+</section>
 <section id="using-lockmgr-class">
-<h2><span class="section-number">1.3. </span>Using LockMgr Class<a class="headerlink" href="#using-lockmgr-class" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">1.4. </span>Using LockMgr Class<a class="headerlink" href="#using-lockmgr-class" title="Link to this heading">¶</a></h2>
 <p>Using the class is straightforward. Choose a file to use as the lockfile - avoid NFS mounts.
 I find using <em>/tmp</em> works well since its a <em>tmpfs</em> file system.</p>
 <p>An sample application is available in the examples directory. To see it in action,
@@ -102,11 +112,11 @@ the other will wait until its released.</p>
 </div>
 </section>
 <section id="research-on-file-locking">
-<h2><span class="section-number">1.4. </span>Research on file locking<a class="headerlink" href="#research-on-file-locking" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">1.5. </span>Research on file locking<a class="headerlink" href="#research-on-file-locking" title="Link to this heading">¶</a></h2>
 <p>I share my notes and research on file locking. All code samples are available in the
 examples/research directory.</p>
 <section id="linux-c">
-<h3><span class="section-number">1.4.1. </span>Linux: C<a class="headerlink" href="#linux-c" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">1.5.1. </span>Linux: C<a class="headerlink" href="#linux-c" title="Link to this heading">¶</a></h3>
 <p>File Locking has linux kernel support via standard C library using fcntl().
 The mechanism uses ‘struct flock’ as the communication mechanism with (posix) fcntl().</p>
 <p>The standard locking mechanism uses F_SETLK. This lock lives at the process level
@@ -136,7 +146,7 @@ probably be avoided. Since my dominant use case is single machine, multiple proc
 /tmp which is a TMPFS file system and works well.</p>
 </section>
 <section id="python">
-<h3><span class="section-number">1.4.2. </span>Python<a class="headerlink" href="#python" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">1.5.2. </span>Python<a class="headerlink" href="#python" title="Link to this heading">¶</a></h3>
 <p>Python provides for same locking mechanisms - I recommend only 1 way for file locks in python.
 Python library provides for:</p>
 <blockquote>
@@ -172,7 +182,7 @@ This is what I use and recommend.</p>
 </section>
 </section>
 <section id="c-examples">
-<h2><span class="section-number">1.5. </span>C Examples<a class="headerlink" href="#c-examples" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">1.6. </span>C Examples<a class="headerlink" href="#c-examples" title="Link to this heading">¶</a></h2>
 <p>Sample code for F_SETLK and F_OFD_SETLK
 To compile:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make
@@ -187,17 +197,17 @@ sizes to use in python fcntl.fcntl approach.</p>
 <p>The test program demonstrates locking with and without OFD.
 To run the test progrm see the <a class="reference internal" href="#tests-c-lock-test">Tests: c_lock_test</a> section below.</p>
 <section id="tests-c-lock-test">
-<h3><span class="section-number">1.5.1. </span>Tests: c_lock_test<a class="headerlink" href="#tests-c-lock-test" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">1.6.1. </span>Tests: c_lock_test<a class="headerlink" href="#tests-c-lock-test" title="Link to this heading">¶</a></h3>
 <p>To run locking tests, use 2 terminals. Run c_lock_test in both.
 The first will acquire lock while second will fail until first exits or is interrupted.</p>
 <section id="test-1-using-f-setlk">
-<h4><span class="section-number">1.5.1.1. </span>Test 1 : Using F_SETLK<a class="headerlink" href="#test-1-using-f-setlk" title="Link to this heading">¶</a></h4>
+<h4><span class="section-number">1.6.1.1. </span>Test 1 : Using F_SETLK<a class="headerlink" href="#test-1-using-f-setlk" title="Link to this heading">¶</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./c_lock_test
 </pre></div>
 </div>
 </section>
 <section id="test-2-using-f-ofd-setlk">
-<h4><span class="section-number">1.5.1.2. </span>Test 2 : Using F_OFD_SETLK<a class="headerlink" href="#test-2-using-f-ofd-setlk" title="Link to this heading">¶</a></h4>
+<h4><span class="section-number">1.6.1.2. </span>Test 2 : Using F_OFD_SETLK<a class="headerlink" href="#test-2-using-f-ofd-setlk" title="Link to this heading">¶</a></h4>
 <p>Repeat test but with argument to turn on OFD</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./c_lock_test<span class="w"> </span>ofd
 </pre></div>
@@ -207,19 +217,19 @@ The first will acquire lock while second will fail until first exits or is inter
 </section>
 </section>
 <section id="python-examples">
-<h2><span class="section-number">1.6. </span>Python Examples<a class="headerlink" href="#python-examples" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">1.7. </span>Python Examples<a class="headerlink" href="#python-examples" title="Link to this heading">¶</a></h2>
 <section id="lock-fcntl">
-<h3><span class="section-number">1.6.1. </span>lock_fcntl<a class="headerlink" href="#lock-fcntl" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">1.7.1. </span>lock_fcntl<a class="headerlink" href="#lock-fcntl" title="Link to this heading">¶</a></h3>
 <p>F_SETLK and F_OFD_SETLK tests in python.
 Run test in 2 terminals as above:</p>
 <section id="test-3-f-setlk">
-<h4><span class="section-number">1.6.1.1. </span>Test 3 : F_SETLK<a class="headerlink" href="#test-3-f-setlk" title="Link to this heading">¶</a></h4>
+<h4><span class="section-number">1.7.1.1. </span>Test 3 : F_SETLK<a class="headerlink" href="#test-3-f-setlk" title="Link to this heading">¶</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./lock_fcntl.py
 </pre></div>
 </div>
 </section>
 <section id="test-4-f-ofd-setlk">
-<h4><span class="section-number">1.6.1.2. </span>Test 4 : F_OFD_SETLK<a class="headerlink" href="#test-4-f-ofd-setlk" title="Link to this heading">¶</a></h4>
+<h4><span class="section-number">1.7.1.2. </span>Test 4 : F_OFD_SETLK<a class="headerlink" href="#test-4-f-ofd-setlk" title="Link to this heading">¶</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./lock_fcntl.py<span class="w"> </span>ofd
 </pre></div>
 </div>
@@ -227,11 +237,11 @@ Run test in 2 terminals as above:</p>
 </section>
 </section>
 <section id="lock-flock">
-<h3><span class="section-number">1.6.2. </span>lock_flock<a class="headerlink" href="#lock-flock" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">1.7.2. </span>lock_flock<a class="headerlink" href="#lock-flock" title="Link to this heading">¶</a></h3>
 <p>This is what I am using.
 As above, run test in 2 terminals.</p>
 <section id="test-5">
-<h4><span class="section-number">1.6.2.1. </span>Test 5<a class="headerlink" href="#test-5" title="Link to this heading">¶</a></h4>
+<h4><span class="section-number">1.7.2.1. </span>Test 5<a class="headerlink" href="#test-5" title="Link to this heading">¶</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./lock_fcntl.py
 </pre></div>
 </div>
@@ -291,10 +301,11 @@ As above, run test in 2 terminals.</p>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. lockmgr</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#overview">1.1. Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#recent-changes">1.2. Recent Changes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-lockmgr-class">1.3. Using LockMgr Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#research-on-file-locking">1.4. Research on file locking</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#c-examples">1.5. C Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#python-examples">1.6. Python Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#signed-source">1.3. Signed Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-lockmgr-class">1.4. Using LockMgr Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#research-on-file-locking">1.5. Research on file locking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#c-examples">1.6. C Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-examples">1.7. Python Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="python-api.html">2. API Reference</a></li>

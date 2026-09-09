@@ -5,25 +5,46 @@
 # Each tries to get a lock with 30 second timeout
 # Once acquired hold it for 2 seconds before releasing it.
 # All should be able to acquire a lock. 
+#
+# Takes one argument which is the test directory.
+# If missing, assume this is run in the test directory.
 # 
-export PYTHONPATH=../src
-num=5
+set -euo pipefail
+set -E
+trap 'echo "FAILED at line $LINENO: $BASH_COMMAND (exit code $?)" >&2' ERR
 
-# run a few in background
+if (( $# < 1 )) ; then
+    testdir='./'
+else
+    testdir="$1"
+fi
+
+export PYTHONPATH=$(/usr/bin/realpath "$testdir")
+
+#
+# Run a few in the background and wait
+# for them to exit.
+#
+num=5
+echo " -> test locking using $num processes"
+
 for ((i = 0; i < num; i++)); do
-    ./test_locks.py "$i" &
+    "$testdir"/test_locks.py "$i" &
     pids+=("$!")
 done
 
+#
 # wait for each to exit
+#
 success=0
 for pid in "${pids[@]}"; do
     wait "$pid"
     if (( $? == 0 )); then
-        ((success++))
+        success=$(($success + 1))
     fi
 done
 failed=$((num - success))
+echo " test complete"
 
 green() { echo -en "\e[32m$1\e[0m"; }
 red()   { echo -en "\e[31m$1\e[0m"; }

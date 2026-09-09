@@ -6,14 +6,24 @@ Tags
 
 .. code-block:: text
 
-	1.3.0 (2024-03-29) -> 1.9.4 (2026-09-06)
-	32 commits.
+	1.3.0 (2024-03-29) -> HEAD (2026-09-09)
+	33 commits.
 
 Commits
 =======
 
 
-* 2026-09-06  : **1.9.4**
+* 2026-09-09  : **HEAD**
+
+.. code-block:: text
+
+              - **1.9.5**
+            
+                * meson now runs tests.
+                * Clean html docs to avoid unneeded sphinx tmp files.
+                * Fix bug with tests using relative path as reported by @piater on AUR
+
+* 2026-09-06  : **1.9.4, origin/master**
 
 .. code-block:: text
 
@@ -22,7 +32,7 @@ Commits
                 * Fix missing makedepends and ensure build/install scripts fail on error
                   Thanks to @TrialnError on Arch AUR.
 
-* 2026-09-06  : **1.9.3, origin/master**
+* 2026-09-06  : **1.9.3**
 
 .. code-block:: text
 

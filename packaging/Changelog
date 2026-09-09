@@ -1,17 +1,24 @@
 -------------------------------------------------------
  Changelog    : lockmgr
- Tags         : 1.8.2 ➙ 1.9.4
-              : 2026-01-06 ➙ 2026-09-06
+ Tags         : 1.8.2 ➙ HEAD
+              : 2026-01-06 ➙ 2026-09-09
               : 6 tags. See Docs for full changelog
 -------------------------------------------------------
 
- 2026-09-06   : 1.9.4
+ 2026-09-09   : HEAD
+              - **1.9.5**
+            
+                * meson now runs tests.
+                * Clean html docs to avoid unneeded sphinx tmp files.
+                * Fix bug with tests using relative path as reported by @piater on AUR
+
+ 2026-09-06   : 1.9.4, origin/master
               - **1.9.4**
             
                 * Fix missing makedepends and ensure build/install scripts fail on error
                   Thanks to @TrialnError on Arch AUR.
 
- 2026-09-06   : 1.9.3, origin/master
+ 2026-09-06   : 1.9.3
               - Add missing makedepends on meson (per @TrialnError from aur - thank you!)
 
  2026-09-06   : 1.9.2

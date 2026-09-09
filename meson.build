@@ -23,7 +23,7 @@ d_share = get_option('datadir')
 
 py_mod = import('python')
 py = py_mod.find_installation(pure: false)
-src_root = meson.project_source_root()
+proj_root = meson.project_source_root()
 py_dep = py.dependency(embed: true)
 
 inc_dir = []
@@ -115,3 +115,19 @@ install_data(
   install_dir: d_share / 'licenses/lockmgr'
 )
 
+#
+# tests
+#
+pytest = find_program('pytest')
+srcdir = proj_root / 'src'
+testdir = srcdir / 'tests'
+
+test_1 = find_program(testdir / 'test_locks.py')
+
+test('test_1',
+    test_1,
+    args: [],
+    env: {'PYTHONPATH': srcdir},
+    suite: ['unit'],
+    timeout: 60,
+  )
