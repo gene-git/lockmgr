@@ -122,11 +122,11 @@ pytest = find_program('pytest')
 srcdir = proj_root / 'src'
 testdir = srcdir / 'tests'
 
-test_1 = find_program(testdir / 'test_locks.py')
+test_1 = find_program(testdir / 'run-lock-test')
 
 test('test_1',
     test_1,
-    args: [],
+    args: [testdir],
     env: {'PYTHONPATH': srcdir},
     suite: ['unit'],
     timeout: 60,

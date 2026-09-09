@@ -14,10 +14,10 @@ The API reference doc in both PDF and HTML is included.
 Recent Changes
 ==============
 
-**1.9.6**
+**1.9.7**
 
-* typo
-
+* Test now runs several processs in parallel waiting to acquire lock
+  
 **1.9.5**
 
 * meson now runs tests.

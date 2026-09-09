@@ -6,14 +6,22 @@ Tags
 
 .. code-block:: text
 
-	1.3.0 (2024-03-29) -> 1.9.6 (2026-09-09)
-	34 commits.
+	1.3.0 (2024-03-29) -> 1.9.7 (2026-09-09)
+	35 commits.
 
 Commits
 =======
 
 
-* 2026-09-09  : **1.9.6**
+* 2026-09-09  : **1.9.7**
+
+.. code-block:: text
+
+              - **1.9.7**
+            
+                * Test now runs several processs in parallel waiting to acquire lock
+
+* 2026-09-09  : **1.9.6, origin/master**
 
 .. code-block:: text
 
@@ -31,7 +39,7 @@ Commits
                 * Clean html docs to avoid unneeded sphinx tmp files.
                 * Fix bug with tests using relative path as reported by @piater on AUR
 
-* 2026-09-06  : **1.9.4, origin/master**
+* 2026-09-06  : **1.9.4**
 
 .. code-block:: text
 
