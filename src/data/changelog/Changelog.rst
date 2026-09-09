@@ -6,14 +6,23 @@ Tags
 
 .. code-block:: text
 
-	1.3.0 (2024-03-29) -> 1.10.2 (2026-09-09)
-	39 commits.
+	1.3.0 (2024-03-29) -> 2.0.0 (2026-09-09)
+	40 commits.
 
 Commits
 =======
 
 
-* 2026-09-09  : **1.10.2**
+* 2026-09-09  : **2.0.0**
+
+.. code-block:: text
+
+              - **2.0.0**
+            
+                * Rename Arch package to python-lockmgr (Arch naming convention)
+                * No functional change.
+
+* 2026-09-09  : **1.10.2, origin/master**
 
 .. code-block:: text
 
@@ -21,7 +30,7 @@ Commits
             
                 * Use meson parallel test capability instead of bash script
 
-* 2026-09-09  : **1.10.1, origin/master**
+* 2026-09-09  : **1.10.1**
 
 .. code-block:: text
 

@@ -14,52 +14,11 @@ The API reference doc in both PDF and HTML is included.
 Recent Changes
 ==============
 
-**1.10.2**
+**2.0.0**
 
-* Use meson parallel test capability instead of bash script
+* Rename Arch package to python-lockmgr (Arch naming convention)
+* No functional change.
 
-**1.10.1**
-
-* Drop unused pytest from meson.build (thank you @piater)
-
-**1.10.0**
-
-* Bug in meson test runner with PYTHONPATH - One of those mornings ... 
-
-**1.9.7**
-
-* Test now runs several processs in parallel waiting to acquire lock
-  
-**1.9.5**
-
-* meson now runs tests.
-* Clean html docs to avoid unneeded sphinx tmp files.
-* Fix bug with tests using relative path as reported by @piater on AUR
-
-**1.9.4**
-
-* Fix missing makedepends and ensure build/install scripts fail on error
-  Thanks to @TrialnError on Arch AUR.
-
-**1.9.1**
-
-* Use meson / meson-python for build and package management
-* Periodic review
-* Small code adjustments.
-* Add check to PKGBUILD
-* please delete any /usr/lib/python3.14/site-packages/lockmgr/__pycache__ before installing.
-  See important note below.
-
-** IMPORTANT **
-
-Some older versions of this package did not include any byte compiled cache (__pycache__)
-and python auto creates them at runtime at a later date. If this exists, please delete 
-the direcroty before installing this version since  it now includes the .pyc files. 
-This will avoid pacman error that a .pyc file exists. So before upgrade please do::
-
-    /usr/bin/rm -rf /usr/lib/python3.14/site-packages/lockmgr/__pycache__
-
-My apologies.
 
 Signed Source
 =============

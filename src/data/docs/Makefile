@@ -9,12 +9,12 @@ SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = .
 BUILDDIR      = _build
 
-SOURCES = conf.py ../../version.txt index.rst README.rst python-api.rst \
-		  ../../lockmgr/class_lock.py
+SOURCES = conf.py ../../version.txt index.rst python-api.rst README.rst Makefile
+SOURCES += ../../lockmgr/class_lock.py
 
 HTML_EXCL 	= --exclude _sources/ --exclude .buildinfo  --exclude .doctrees/
 
-.PHONY: help Makefile clean html latexpdf
+.PHONY: help clean html latexpdf
 
 html: $(BUILDDIR)/html/index.html
 latexpdf: $(PKG).pdf

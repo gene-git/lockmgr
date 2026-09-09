@@ -8,7 +8,7 @@ Installation
 
 Available on
  * `Github <https://github.com/gene-git/lockmgr>`_
- * `Archlinux AUR <https://aur.archlinux.org/packages/lockmgr>`_
+ * `Archlinux AUR <https://aur.archlinux.org/packages/python-lockmgr>`_
 
 On Arch you can build using the provided PKGBUILD in the packaging directory or from the AUR.
 To build manually, clone the repo and ::
