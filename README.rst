@@ -14,6 +14,10 @@ The API reference doc in both PDF and HTML is included.
 Recent Changes
 ==============
 
+**1.9.8**
+
+* Bug in meson test runner with PYTHONPATH
+
 **1.9.7**
 
 * Test now runs several processs in parallel waiting to acquire lock

@@ -19,7 +19,9 @@ else
     testdir="$1"
 fi
 
-export PYTHONPATH=$(/usr/bin/realpath "$testdir")
+testdir=$(/usr/bin/realpath "%testdir")
+srcdir=$(/usr/bin/dirname "$testdir")
+export PYTHONPATH=$(/usr/bin/realpath "${srcdir}")
 
 #
 # Run a few in the background and wait
