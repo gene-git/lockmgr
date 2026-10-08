@@ -6,14 +6,20 @@ Tags
 
 .. code-block:: text
 
-	1.3.0 (2024-03-29) -> 2.0.0 (2026-09-09)
-	40 commits.
+	1.3.0 (2024-03-29) -> 2.0.1 (2026-10-08)
+	41 commits.
 
 Commits
 =======
 
 
-* 2026-09-09  : **2.0.0**
+* 2026-10-08  : **2.0.1**
+
+.. code-block:: text
+
+              - 2.0.1 Documentaion available on `radthedocs <https://lockmgr.readthedocs.io>`
+
+* 2026-09-09  : **2.0.0, origin/master**
 
 .. code-block:: text
 
@@ -22,7 +28,7 @@ Commits
                 * Rename Arch package to python-lockmgr (Arch naming convention)
                 * No functional change.
 
-* 2026-09-09  : **1.10.2, origin/master**
+* 2026-09-09  : **1.10.2**
 
 .. code-block:: text
 

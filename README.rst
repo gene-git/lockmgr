@@ -9,16 +9,15 @@ Overview
 
 lockmgr provides a Python class implementing file locking.
 
-The API reference doc in both PDF and HTML is included.
+The API reference is in the manual.
 
-Recent Changes
-==============
+Documentation
+-------------
 
-**2.0.0**
+The manual provides detailed information and is available in both HTML and PDF formats.
+Both are installed under */usr/share/lockmgr/docs*.
 
-* Rename Arch package to python-lockmgr (Arch naming convention)
-* No functional change.
-
+The manual is also available at: `readthedocs <https://lockmgr.readthedocs.io>`_.
 
 Signed Source
 =============
