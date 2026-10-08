@@ -6,12 +6,19 @@ Tags
 
 .. code-block:: text
 
-	1.3.0 (2024-03-29) -> 2.0.1 (2026-10-08)
-	41 commits.
+	1.3.0 (2024-03-29) -> 2.0.2 (2026-10-08)
+	43 commits.
 
 Commits
 =======
 
+
+* 2026-10-08  : **2.0.2**
+
+.. code-block:: text
+
+              - 2.0.2 Tweak for readthedocs
+              - readthedocs drop un-needed hawkmoth
 
 * 2026-10-08  : **2.0.1**
 
@@ -19,7 +26,7 @@ Commits
 
               - 2.0.1 Documentaion available on `radthedocs <https://lockmgr.readthedocs.io>`
 
-* 2026-09-09  : **2.0.0, origin/master**
+* 2026-09-09  : **2.0.0**
 
 .. code-block:: text
 

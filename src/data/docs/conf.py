@@ -36,12 +36,6 @@ extensions = [
     'sphinx.ext.imgconverter',
 ]
 
-primary_domain = 'c'
-hawkmoth_clang_c = [
-    "-std=c23",
-    "-Ilib",
-]
-
 #
 # Latex
 # 
