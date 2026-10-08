@@ -34,7 +34,6 @@ highlight_language = 'none'
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.imgconverter',
-    "hawkmoth",                  # Core Hawkmoth C-Autodoc engine
 ]
 
 primary_domain = 'c'
